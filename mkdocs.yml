@@ -1,0 +1,79 @@
+site_name: Project Documentation Template
+site_description: Technical documentation for the Project Documentation Template
+site_author: Project Documentation Template team
+docs_dir: docs
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Audits:
+      - Index: audits/index.md
+      - Domain 1:
+          - Example Audit 1: audits/domain1/example-audit-1.md
+          - Example Audit 2: audits/domain1/example-audit-2.md
+      - Domain 2:
+          - Example Audit 1: audits/domain2/example-audit-1.md
+          - Example Audit 2: audits/domain2/example-audit-2.md
+  - Backlog:
+      - Index: backlog/index.md
+      - Domain 1:
+          - Example Backlog 1: backlog/domain1/example-backlog-1.md
+          - Example Backlog 2: backlog/domain1/example-backlog-2.md
+      - Domain 2:
+          - Example Backlog 1: backlog/domain2/example-backlog-1.md
+          - Example Backlog 2: backlog/domain2/example-backlog-2.md
+  - Tasks:
+      - Index: tascks/index.md
+      - Domain 1:
+          - Example Task 1: tascks/domain1/example-task-1.md
+          - Example Task 2: tascks/domain1/example-task-2.md
+      - Domain 2:
+          - Example Task 1: tascks/domain2/example-task-1.md
+          - Example Task 2: tascks/domain2/example-task-2.md

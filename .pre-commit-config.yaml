@@ -1,0 +1,38 @@
+# Pre-commit hooks for Project Documentation Template.
+#
+# Prerequisites:
+#   poetry install
+#   poetry run pre-commit install
+#
+# Or with plain pip:
+#   pip install pre-commit mdformat mdformat-mkdocs
+#   pre-commit install
+#
+# Run manually against all files:
+#   pre-commit run --all-files
+
+repos:
+  # ---------------------------------------------------------------------------
+  # standard pre-commit hooks (trailing whitespace, EOF newline, YAML/TOML)
+  # ---------------------------------------------------------------------------
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: mixed-line-ending
+        args: [--fix=lf]
+
+  # ---------------------------------------------------------------------------
+  # mdformat — opinionated Markdown formatter (with MkDocs plugin)
+  # ---------------------------------------------------------------------------
+  - repo: https://github.com/hukkin/mdformat
+    rev: 0.7.22
+    hooks:
+      - id: mdformat
+        additional_dependencies:
+          - mdformat-mkdocs>=3.0
+          # NOTE: pre-commit installs via pip, which doesn't support Poetry's caret (^) specifier.
+          - mdformat-frontmatter>=2.0.10,<3.0.0

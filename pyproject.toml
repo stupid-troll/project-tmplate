@@ -1,0 +1,62 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+ [tool.poetry]
+name = "project-documentation-template"
+version = "0.0.0"
+description = "Project Documentation Template site"
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = ">=3.12,<4.0"
+
+[tool.poetry.group.dev.dependencies]
+# documentation site
+mkdocs = ">=1.6,<2.0"
+mkdocs-material = ">=9.5"
+mkdocs-linkcheck = "^1.0.6"
+# markdown formatting
+mdformat = ">=0.7"
+mdformat-mkdocs = ">=3.0"
+mdformat-frontmatter = "^2.0.10"
+# pre-commit runner
+pre-commit = ">=3.8"
+linkchecker = "^10.6.0"
+
+# ---------------------------------------------------------------------------
+# mdformat
+# ---------------------------------------------------------------------------
+[tool.mdformat]
+extensions = []
+wrap = "no"
+end-of-line = "lf"
+
+# ---------------------------------------------------------------------------
+# linkchecker
+# ---------------------------------------------------------------------------
+[tool.linkchecker]
+# Entry point — checked against the built site/ directory (run `make build` first).
+entry = "site/index.html"
+threads = 4
+timeout = 10
+no_warnings = true
+# Regex patterns for URLs to skip
+ignore_url = [
+    "^mailto:",
+    "^https://fonts\\.gstatic\\.com",
+    "^https://fonts\\.googleapis\\.com",
+]
+
+# ---------------------------------------------------------------------------
+# docs.py
+# ---------------------------------------------------------------------------
+[tool.docs]
+exclude_dirs = [
+    ".git",
+    ".venv",
+    "__pycache__",
+    "node_modules",
+    "site",
+]

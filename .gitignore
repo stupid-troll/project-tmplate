@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+.uv/
+*.egg-info/
+
+# Coverage / build artifacts
+coverage/
+dist/
+build/
+target/
+
+# MkDocs generated site
+site/
+
+# Caches
+.cache/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+
+tmp/*
